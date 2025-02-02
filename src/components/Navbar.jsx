@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react"; // Icon Library
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +14,7 @@ export default function Navbar() {
                         <Link to="/">B LOG</Link>
                     </h1>
 
-                    {/* Desktop Menu */}
+                    {/* Desktop & Mobile Menu */}
                     <div className="hidden md:flex space-x-6">
                         <NavLink to="/">Home</NavLink>
                         <NavLink to="/blog">Blog</NavLink>
@@ -26,19 +26,27 @@ export default function Navbar() {
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <button onClick={() => setIsOpen(!isOpen)} className="md:hidden focus:outline-none">
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="md:hidden focus:outline-none"
+                    >
                         {isOpen ? <X size={28} /> : <Menu size={28} />}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
-            <div className={`md:hidden transition-all duration-300 ${isOpen ? "block" : "hidden"} bg-blue-700`}>
-                <div className="flex flex-col items-center py-4 space-y-4">
+            {/* Mobile Menu - Same as Desktop */}
+            <div
+                className={`md:hidden transition-all duration-300 ${
+                    isOpen ? "block" : "hidden"
+                } bg-gray-900`}
+            >
+                <div className="flex flex-col items-center space-y-4 py-4">
                     <NavLink to="/" onClick={() => setIsOpen(false)}>Home</NavLink>
-                    <NavLink to="/about" onClick={() => setIsOpen(false)}>About</NavLink>
+                    <NavLink to="/blog" onClick={() => setIsOpen(false)}>Blog</NavLink>
+                    <NavLink to="/videos" onClick={() => setIsOpen(false)}>Videos</NavLink>
                     <NavLink to="/contact" onClick={() => setIsOpen(false)}>Contact</NavLink>
-                    <NavLink to="/dashboard" onClick={() => setIsOpen(false)}>Dashboard</NavLink>
+                    <NavLink to="/about" onClick={() => setIsOpen(false)}>About</NavLink>
                     <NavLink to="/signup" onClick={() => setIsOpen(false)}>Signup</NavLink>
                     <NavLink to="/login" onClick={() => setIsOpen(false)}>Login</NavLink>
                 </div>
