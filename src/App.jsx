@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./pages/Footer";
 import Blog from "./pages/Blog";
 import VideoList from "./pages/VideoList";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/logout" element={<Logout />} />
                     <Route path="/post/:postId" element={<Post />} />
                 </Routes>
